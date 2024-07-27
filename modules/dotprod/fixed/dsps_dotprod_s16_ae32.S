@@ -41,11 +41,15 @@ dsps_dotprod_s16_ae32:
 	movi a8, 0
 	wsr a8, acchi
 		
-	// Prepare and load round value
-	movi a8, 0x7fff
-	ssr a6
-	srl a8, a8
+	// Prepare but don't add rounding value
+	movi a8, 0
 	wsr a8, acclo // initialize acc with shifted round value
+	
+	// // Prepare and load round value
+	// movi a8, 0x7fff
+	// ssr a6
+	// srl a8, a8
+	// wsr a8, acclo // initialize acc with shifted round value
 
 	// Compensate for pre-increment 
 	// Right shift to 16 bits
